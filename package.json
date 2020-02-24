@@ -2,8 +2,8 @@
   "name": "eslabs-prj",
   "version": "0.0.0",
   "engines": {
-    "node": "v8.9.4",
-    "npm": "5.6.0"
+    "node": "v10.15.0",
+    "npm": "6.4.1"
   },
   "scripts": {
     "ng": "ng",
