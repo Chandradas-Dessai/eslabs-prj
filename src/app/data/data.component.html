@@ -1,0 +1,46 @@
+<main class="grid row" *ngIf='alldata'>
+    <div class="col-sm-3 cols" *ngFor='let d of alldata; let k= index' data-toggle="modal" data-target="#data-model">
+        <div class="inner-col d-block text-center" (click)="loadDataToView(d.id, d)">Index: {{ k }}<span> ID: {{ d.id }}</span></div>
+    </div>
+</main>
+
+<div class="modal" tabindex="-1" role="dialog" id="data-model">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Container Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" *ngIf="singleData">
+              <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>YardName</th>
+                <th>StackName</th>
+                <th>ContainerNo</th>
+                <th>Row</th>
+                <th>Column</th>
+                <th>height</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <td>{{ singleData.id }}</td>
+                <td>{{ singleData.YardName }}</td>
+                <td>{{ singleData.StackName }}</td>
+                <td>{{ singleData.ContainerNo }}</td>
+                <td>{{ singleData.Row }}</td>
+                <td>{{ singleData.Column }}</td>
+                <td>{{ singleData.Height }}</td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

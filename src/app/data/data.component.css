@@ -1,0 +1,20 @@
+.grid {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.cols{
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.inner-col {
+    min-height: 40px;
+}
+.grid .cols:nth-child(2n+1) {
+    background: #9e97f4;
+}
+.grid .cols:nth-child(2n) {
+    background-color: #00ffe7;
+}
+.grid .cols:nth-child(3n+0) {
+    background: red;
+  }
