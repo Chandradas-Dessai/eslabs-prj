@@ -1,11 +1,10 @@
-
 <div class="yards" *ngFor="let y of yardNames">
     <h1>{{ y }}</h1>
     <div class="stacks" *ngFor="let s of stackNames">
       <h3>{{ s }}</h3>
       <div class="containers" *ngIf="allYardsData">
         <div class="container-single cont-{{ k }}" *ngFor="let data of allYardsData; let k= index" (click)="loadDataToView(data.id, data)">
-          <div class="cont-inner" *ngIf="y == data.YardName && s == data.StackName">
+          <div class="cont-inner cont-inner-h1" *ngIf="1 == data.Height && y == data.YardName && s == data.StackName">
             <h6>
               {{ data.ContainerNo }}
               <span>{{ data.Row }}</span>
@@ -13,15 +12,23 @@
               <span>{{ data.Height }}</span>
             </h6>
           </div>
+          <div class="cont-inner cont-inner-h2" *ngIf="2 == data.Height && y == data.YardName && s == data.StackName">
+              <h6>
+                {{ data.ContainerNo }}
+                <span>{{ data.Row }}</span>
+                <span>{{ data.Column }}</span>
+                <span>{{ data.Height }}</span>
+              </h6>
+            </div>
         </div>
       </div>
     </div>
 </div>
 
 <div id="pannel" [className]="clicked ? 'active' : 'inactive'">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePanel()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePanel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   <div class="panel-content">
     <h5>ID: {{ singleData.id }}</h5>
     <h5>YardName: {{ singleData.YardName }}</h5>
