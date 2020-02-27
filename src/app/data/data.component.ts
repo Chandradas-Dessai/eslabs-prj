@@ -24,7 +24,7 @@ export class DataComponent implements OnInit {
   }
 
   listYards(){
-    this.yardService.getYards().subscribe(data =>{
+    this.dataService.getData().subscribe(data =>{
       this.allYardsData = data;
    
        // Get all yards and stacks
