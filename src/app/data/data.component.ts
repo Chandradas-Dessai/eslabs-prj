@@ -10,24 +10,43 @@ import { DataService } from '../_services/data.service';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-  alldata: any;
+  allYardsData: any;
   singleData: any;
+  yardNames: string[];
+  stackNames: string[];
+  modifData = {};
+  clicked:boolean = false;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.listData();
+   this.listYards();
   }
 
-  listData(){
-    this.dataService.getData().subscribe(data =>{
-      this.alldata = data;
-      console.log(this.alldata);
-    })
+  listYards(){
+    this.yardService.getYards().subscribe(data =>{
+      this.allYardsData = data;
+   
+       // Get all yards and stacks
+      const yard =  this.allYardsData.map(data => data.YardName);
+      const stack = this.allYardsData.map(data => data.StackName);
+
+      // Filter Unique yards and stacks
+      this.yardNames = yard.filter((x, i, a) => x && a.indexOf(x) === i);
+      this.stackNames = stack.filter((x, i, a) => x && a.indexOf(x) === i);
+
+
+    });
   }
 
   loadDataToView(dId: string, data:any){ 
-      this.singleData = data;
+    this.clicked = true;
+
+    this.singleData = data;
+  }
+
+  closePanel(){
+    this.clicked = false;
   }
 
 }
